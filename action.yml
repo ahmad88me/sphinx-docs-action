@@ -1,6 +1,9 @@
 name: Sphinx Docs
 description: "Automates Sphinx docs generation: builds structure, extracts metadata, creates HTML, cleans up, and preps for GitHub Pages."
 author: Ahmad Alobaid <ahmad88me@gmail.com>
+branding:
+  icon: 'book-open'
+  color: 'yellow'
 
 inputs:
   python-version:
