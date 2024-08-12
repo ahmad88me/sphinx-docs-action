@@ -77,10 +77,10 @@ runs:
     - name: Push changes
       run: |
         git push
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       shell: bash
-
+      env:
+        GITHUB_TOKEN: ${{ inputs.github-token }}
+        
 outputs:
   docs-path:
     description: 'Path to the generated documentation'
