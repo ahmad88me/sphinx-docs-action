@@ -68,14 +68,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: ahmad88me/sphinx-docs-action@v1
+      - uses: ahmad88me/sphinx-docs-action@524969511dcae8d12dcb55a47664af2bd9fa83ff
         with:
           python-version: '3.8'
           git-username: 'yourusername'
           git-email: 'youremail@users.noreply.github.com'
-          sphinx-project-path: 'src'
-          sphinx-files-pattern: 'examples/*example*.py'
+          project-path: 'src'
+          files-pattern: 'examples/*example*.py'
           commit-message: 'update docs'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
 ```
 2. Change the configurations to fit your needs. (e.g., github name and email).
