@@ -1,45 +1,76 @@
 name: Sphinx Docs
-author: Ahmad Alobaid
-description: Automates Sphinx docs generation: builds structure, extracts metadata, creates HTML, cleans up, and preps for GitHub Pages.
+description: "Automates Sphinx docs generation: builds structure, extracts metadata, creates HTML, cleans up, and preps for GitHub Pages."
+author: Ahmad Alobaid <ahmad88me@gmail.com>
 
-on:
-  push:
-  pull_request:
+inputs:
+  python-version:
+    description: 'Version of Python to set up'
+    required: false
+    default: '3.8'
+  git-username:
+    description: 'Git username for commits'
+    required: false
+    default: 'yourusername'
+  git-email:
+    description: 'Git email for commits'
+    required: false
+    default: 'youremail@users.noreply.github.com'
+  project-path:
+    description: 'Path to the Sphinx project'
+    required: false
+    default: 'src'
+  files-pattern:
+    description: 'Pattern to match example files'
+    required: false
+    default: 'examples/*example*py'
+  commit-message:
+    description: 'Commit message for the documentation update'
+    required: false
+    default: 'update docs'
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-    - name: Set up Python 3.8
+runs:
+  using: 'composite'
+  steps:
+    - name: Set up Python ${{ inputs.python-version }}
       uses: actions/setup-python@v3
       with:
-        python-version: "3.8"
+        python-version: ${{ inputs.python-version }}
+
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip sphinx-autodoc-typehints sphinx_example_includer sphinx docutils
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
     - name: Remove docs folder
       run: |
         rm -Rf docs
+
     - name: Generate documentation
       run: |
-        python -m sphinx_example_includer --info --build --project src --files examples/*example*.py --overwrite
-        cd docs; ls;find . -maxdepth 1 ! -name '_build' ! -name '.' ! -name '..' -exec rm -rf {} +
+        python -m sphinx_example_includer --info --build --project ${{ inputs.project-path }} --files ${{ inputs.files-pattern }} --overwrite
+        cd docs; ls; find . -maxdepth 1 ! -name '_build' ! -name '.' ! -name '..' -exec rm -rf {} +
         mv _build/html/* ./
         touch .nojekyll
         cd ..
+
     - name: Configure Git
       run: |
-        git config --global user.name "yourusername"
-        git config --global user.email "youremail@users.noreply.github.com"
+        git config --global user.name "${{ inputs.git-username }}"
+        git config --global user.email "${{ inputs.git-email }}"
+
     - name: Commit changes
       run: |
         git status -u
         git add docs
-        git commit -m "update docs"
+        git commit -m "${{ inputs.commit-message }}"
+
     - name: Push changes
       run: |
         git push
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+outputs:
+  docs-path:
+    description: 'Path to the generated documentation'
+    value: 'docs/'
+
