@@ -31,7 +31,7 @@ inputs:
     required: false
     default: 'update docs'
   github-token:
-    description: 'GitHub token to push changes. You can simply use ${{ secrets.GITHUB_TOKEN }}'
+    description: 'GitHub token to push changes. '
     required: true
 
 runs:
