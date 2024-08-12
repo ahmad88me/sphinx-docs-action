@@ -1,4 +1,7 @@
 name: Sphinx Docs
+author: Ahmad Alobaid
+description: Action to automate the generation of sphinx documentation using sphinx_example_includer. It is also flexible that people can configure it to fit their needs.
+
 on:
   push:
   pull_request:
