@@ -1,8 +1,10 @@
 # sphinx-docs-action
 Action to generate sphinx docs using sphinx-example-includer.
 
+
 ## Overview
 This GitHub Action automates the generation of Sphinx documentation using [sphinx_example_includer](https://github.com/ahmad88me/sphinx_example_includer). It streamlines the process by building the documentation structure, fetching project metadata, extracting documentation from source code, and generating HTML files. The final output is cleaned and prepared for deployment via GitHub Pages.
+
 
 ## Features
 *  *Automated Documentation Generation:* Generates Sphinx documentation effortlessly without specifying the configurations (but you can if you want).
@@ -11,6 +13,7 @@ This GitHub Action automates the generation of Sphinx documentation using [sphin
 * *Extract Source Code Documentation:* Extracts and includes documentation from your source code using `sphinx-apidoc`.
 * *Ready for Deployment:* Cleans and prepares the documentation folder for GitHub Pages.
 
+
 ## Prerequisites
 Ensure your project has the following files configured:
 
@@ -18,9 +21,11 @@ Ensure your project has the following files configured:
 * Properly documented source code compatible with Sphinx.
 * Your source code is located in`src`. If not, make sure to change the configuration to specify the directory of your code.
 
+
 ## Outputs
 * *HTML Documentation:* The action generates and prepares HTML files for your project documentation.
 * Cleaned Docs Folder:*  Ensures the docs/ directory is ready for deployment to GitHub Pages.
+
 
 
 ## Configuration
@@ -30,6 +35,7 @@ You can customize the action to fit your project needs. Here are some configurat
 * *GitHub Email:* Specify the email of the user that does the push.
 * *Commit Message:* You can change the commit message of the git push.
 * *[sphinx_example_includer](https://github.com/ahmad88me/sphinx_example_includer) Configurations:* You can modify sphinx example includer configurations as well.
+
 
 
 ## How to use
@@ -88,3 +94,5 @@ jobs:
 * Note that this action deletes the docs everytime and regenerated again. So any modification will be deleted. Instead, change the documentation in the code
 directly.
 * custom `conf.py` is not yet supported. But you are welcome to add this feature to [sphinx_example_includer](https://github.com/ahmad88me/sphinx_example_includer).
+
+
