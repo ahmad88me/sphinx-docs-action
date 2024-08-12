@@ -44,12 +44,14 @@ You can customize the action to fit your project needs. Here are some configurat
     - description: 'Path to project source code'
     - default: 'src'
 * files-pattern:
-    description: 'Pattern to match example files'
-    default: 'examples/*example*py'
+    - description: 'Pattern to match example files'
+    - default: 'examples/*example*py'
 * commit-message:
-    description: 'Commit message for the documentation update'
-    default: 'update docs'
-
+    - description: 'Commit message for the documentation update'
+    - default: 'update docs'
+* github-token:
+    - description: 'GitHub token to push changes. You can simply use ${{ secrets.GITHUB_TOKEN }}'
+    - required: true
 
 
 ## How to use

@@ -30,6 +30,9 @@ inputs:
     description: 'Commit message for the documentation update'
     required: false
     default: 'update docs'
+  github-token:
+    description: 'GitHub token to push changes. You can simply use ${{ secrets.GITHUB_TOKEN }}'
+    required: true
 
 runs:
   using: 'composite'
