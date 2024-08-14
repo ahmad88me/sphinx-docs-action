@@ -1,6 +1,9 @@
 # sphinx-docs-action
 Action to generate sphinx docs using sphinx-example-includer.
 
+## URLs
+[Marketplace](https://github.com/marketplace/actions/sphinx-docs)
+[Code](https://github.com/ahmad88me/sphinx-docs-action)
 
 ## Overview
 This GitHub Action automates the generation of Sphinx documentation using [sphinx_example_includer](https://github.com/ahmad88me/sphinx_example_includer). It streamlines the process by building the documentation structure, fetching project metadata, extracting documentation from source code, and generating HTML files. The final output is cleaned and prepared for deployment via GitHub Pages.
