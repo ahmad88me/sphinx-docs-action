@@ -45,7 +45,7 @@ You can customize the action to fit your project needs. Here are some configurat
     - default: 'src'
 * files-pattern:
     - description: 'Pattern to match example files'
-    - default: 'examples/*example*py'
+    - required: false
 * commit-message:
     - description: 'Commit message for the documentation update'
     - default: 'update docs'
