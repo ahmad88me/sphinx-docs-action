@@ -62,6 +62,7 @@ runs:
         echo "Pre move"; ls
         mv _build/html/* ./
         echo "Post move"; ls
+        rm -Rf _build _sources
         touch .nojekyll
         cd ..
       shell: bash
