@@ -56,14 +56,14 @@ runs:
 
     - name: Generate documentation
       run: |
-      	command="python -m sphinx_example_includer --info --build --project ${{ inputs.project-path }}"
+        command="python -m sphinx_example_includer --info --build --project ${{ inputs.project-path }}"
         if [ -n "${{ inputs.files-pattern }}" ]; then
           command = "$command --files ${{ inputs.files-pattern }} --overwrite" 
         fi
         if [ -n "${{ inputs.readme }}" ]; then
-      	  command="$command --readme ${{ inputs.readme }}"
-    	fi
-	    $command
+          command="$command --readme ${{ inputs.readme }}"
+        fi
+        $command
         cd docs; ls; find . -maxdepth 1 ! -name '_build' ! -name '.' ! -name '..' -exec rm -rf {} +
         mv _build/html/* ./
         rm -Rf _build _sources
