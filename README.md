@@ -57,7 +57,9 @@ You can customize the action to fit your project needs. Here are some configurat
 * github-token:
     - description: 'GitHub token to push changes. You can simply use ${{ secrets.GITHUB_TOKEN }}'
     - required: true
-
+* readme:
+    - description: 'The path to the readme fiel to be included in the docs index'
+    - required: false
 
 ## How to use
 1. Create a workflow with the following yml code.
