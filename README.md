@@ -60,6 +60,10 @@ You can customize the action to fit your project needs. Here are some configurat
 * readme:
     - description: 'The path to the readme file to be included in the docs index'
     - required: false
+* args:
+    - description: "Add extra arguments to the sphinx example includer"
+    - required: false
+
 
 ## How to use
 1. Create a workflow with the following yml code.

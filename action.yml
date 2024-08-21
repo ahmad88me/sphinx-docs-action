@@ -35,6 +35,10 @@ inputs:
   readme:
     description: 'The path to the readme fiel to be included in the docs index'
     required: false
+  args:
+    description: "Add extra arguments to the sphinx example includer"
+    required: false
+
 
 runs:
   using: 'composite'
@@ -63,10 +67,12 @@ runs:
         if [ -n "${{ inputs.readme }}" ]; then
           command="$command --readme ${{ inputs.readme }}";
         fi
+        if [ -n "${{ inputs.args }}" ]; then
+          command="$command ${{ inputs.args</ahmad88me@gmail.com> }}";
+        fi
         $command
         cd docs; ls; find . -maxdepth 1 ! -name '_build' ! -name '.' ! -name '..' -exec rm -rf {} +
         mv _build/html/* ./
-        rm -Rf _build _sources
         touch .nojekyll
         cd ..
       shell: bash
