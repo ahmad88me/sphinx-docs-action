@@ -73,6 +73,7 @@ runs:
         $command
         cd docs; ls; find . -maxdepth 1 ! -name '_build' ! -name '.' ! -name '..' -exec rm -rf {} +
         mv _build/html/* ./
+        rm -Rf _build _sources
         touch .nojekyll
         cd ..
       shell: bash
