@@ -58,7 +58,7 @@ You can customize the action to fit your project needs. Here are some configurat
     - description: 'GitHub token to push changes. You can simply use ${{ secrets.GITHUB_TOKEN }}'
     - required: true
 * readme:
-    - description: 'The path to the readme fiel to be included in the docs index'
+    - description: 'The path to the readme file to be included in the docs index'
     - required: false
 
 ## How to use
