@@ -75,7 +75,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: ahmad88me/sphinx-docs-action@v0.6
+      - uses: ahmad88me/sphinx-docs-action@v0.7
         with:
           python-version: '3.8'
           git-username: 'yourusername'
